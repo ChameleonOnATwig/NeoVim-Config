@@ -15,8 +15,10 @@ return {
 				lualine_b = { "branch", "diff", "diagnostics" },
 				lualine_c = { "filename" },
 				lualine_x = { "encoding", "fileformat", "filetype" },
-				lualine_y = { "progress" },
-				lualine_z = { "location" }
+				lualine_y = { "location" },
+				lualine_z = { function()
+					return " " .. os.date("%-I:%02M %p")
+				end }
 			}
 		}
 	end
