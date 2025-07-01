@@ -10,6 +10,7 @@ return {
 		configs.setup({
 			ensure_installed = {
 				"c",
+				"cpp",
 				"dockerfile",
 				"gitignore",
 				"javascript",
