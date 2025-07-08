@@ -27,11 +27,11 @@ vim.opt.incsearch = true
 -- Better Colors
 vim.opt.termguicolors = true
 
--- 
+-- Some Boarder Stuff
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = "80"
 vim.opt.isfname:append("@-@")
 
--- Set update time as low as possible without bugs
+-- Set Update Time as Low as Possible Without Bugs
 vim.opt.updatetime = 50
