@@ -8,6 +8,7 @@ return {
 	},
 
 	cmd = "Neogit",
+
 	config = function()
 		require("neogit").setup({
 			kind = "split", -- opens neogit in a split 
