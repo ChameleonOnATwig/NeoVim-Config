@@ -11,6 +11,9 @@ vim.opt.expandtab = false
 -- Auto Tab Spacing
 vim.opt.smartindent = true
 
+-- Auto Complete Menu
+vim.opt.completeopt = { "menuone", "noselect", "popup" }
+
 -- No Text Wrapping
 vim.opt.wrap = false
 
