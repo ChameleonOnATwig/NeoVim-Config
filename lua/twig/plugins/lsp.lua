@@ -19,6 +19,7 @@ return {
 				"clangd",
 				"dockerls",
 				"lua_ls",
+				"marksman",
 				"ts_ls",
 				"vimls"
 			}
