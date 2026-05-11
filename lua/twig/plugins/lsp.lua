@@ -22,6 +22,13 @@ return {
 				"marksman",
 				"ts_ls",
 				"vimls"
+			},
+			handlers = {
+				function(server_name)
+					if server_name == "arduino_language_server" then return end
+					vim.lsp.config(server_name, { capabilities = capabilities })
+					vim.lsp.enable(server_name)
+				end,
 			}
 		})
 
@@ -54,8 +61,24 @@ return {
 			}
 		})
 
+		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+		-- Arduino LSP Config
+		vim.lsp.config("arduino_language_server", {
+			capabilities = capabilities,
+			cmd = {
+				vim.fn.expand("~/.local/share/nvim/mason/bin/arduino-language-server"),
+				"-clangd", vim.fn.expand("~/.local/share/nvim/mason/bin/clangd"),
+				"-cli", "/usr/local/bin/arduino-cli",
+				"-cli-config", vim.fn.expand("~/.arduino15/arduino-cli.yaml"),
+				"-fqbn", "arduino:avr:uno",
+			},
+		})
+		vim.lsp.enable("arduino_language_server")
+
 		vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+		vim.keymap.set("n", "<leader>gd", vim.diagnostic.open_float, {})
 		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
 	end
 }
